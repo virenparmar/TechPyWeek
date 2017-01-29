@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Welcome to SanPy</h1>
+<h3>Login</h3>
+{% if error %}
+	<p class="error" style="background-color:red; color:blue;"><strong>Error:</strong>{{ error }}
+{% endif %}
+<form class="page" action="" method=post>
+	<dl>
+	<dt>Username:
+	<dd><input type=text name=username value="{{ request.form.username }}">
+	<dt>Password:
+	<dd><input type=password name=password>
+	</dl>
+	<p><input type=submit value=Login>
+</form>
+<h5>Use 'admin' as Username and Password</h5>
+{% for messages in get_flashed_messages() %}
+<div class="flash" style="color:red; font-family:cursive;">{{ messages }}</div>
+{% endfor %}
+
+{% endblock %}
+
